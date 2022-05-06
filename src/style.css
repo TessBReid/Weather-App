@@ -12,6 +12,7 @@ p {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 0rem;
+  font-size: small;
 }
 
 a {
@@ -37,6 +38,10 @@ button:hover {
   color: #5190ef;
 }
 
+.transparent-box {
+  background-size: cover;
+}
+
 .form-control {
   width: 100%;
 }
@@ -47,6 +52,7 @@ button:hover {
   padding: 20px 10px;
   border-radius: 5px;
   width: 70%;
+  background-size: cover;
 }
 .day-icon {
   text-align: center;

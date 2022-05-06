@@ -27,150 +27,153 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <h1 id="city"></h1>
-        <form id="search-form">
-          <div class="row">
-            <div class="col-6">
-              <input
-                type="text"
-                id="city-input"
-                placeholder="City Name..."
-                autofocus="on"
-                autocomplete="off"
-                class="form-control"
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                class="form-control btn btn-success"
-              />
-            </div>
-            <div class="col-3">
-              <button id="current-location-finder">Current</button>
-            </div>
-          </div>
-        </form>
-
-        <div class="row">
-          <div class="col">
-            <div>
-              <div class="today-temp">
-                <span id="today-temp"></span>
-                <span class="units">
-                  <a href="#" id="celcius" class="active">°C</a>
-                  |
-                  <a href="#" id="farenheit">°F</a>
-                </span>
+      <div class="transparent-box">
+        <div
+          class="weather-app"
+          style="background-image: url(src/img/lake-mountains.jpg)"
+        >
+          <h1 id="city"></h1>
+          <form id="search-form">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="text"
+                  id="city-input"
+                  placeholder="City Name..."
+                  autofocus="on"
+                  autocomplete="off"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-success"
+                />
+              </div>
+              <div class="col-3">
+                <button id="current-location-finder">Current</button>
               </div>
             </div>
-            <div class="date" id="today"></div>
-            <div class="time" id="current-time"></div>
-            <div class="description" id="weather-description">Clear</div>
-          </div>
-          <div class="col">
-            <div class="day-icon">
-              <img src="" alt="" id="weather-icon" />
+          </form>
+
+          <div class="row">
+            <div class="col">
+              <div>
+                <div class="today-temp">
+                  <span id="today-temp"></span>
+                  <span class="units">
+                    <a href="#" id="celcius" class="active">°C</a>
+                    |
+                    <a href="#" id="farenheit">°F</a>
+                  </span>
+                </div>
+              </div>
+              <div class="date" id="today"></div>
+              <div class="time" id="current-time"></div>
+              <div class="description" id="weather-description">Clear</div>
             </div>
-            <div class="day-info">
-              Feels Like:
-              <span id="feels-like">7</span>
-              <br />
-              Humidity:
-              <span id="humidity">24</span>%
-              <br />
-              Wind:
-              <span id="wind">3</span>km/h
+            <div class="col">
+              <div class="day-icon">
+                <img src="" alt="" id="weather-icon" />
+              </div>
+              <div class="day-info">
+                Feels Like:
+                <span id="feels-like">7</span>
+                <br />
+                Humidity:
+                <span id="humidity">24</span>%
+                <br />
+                Wind:
+                <span id="wind">3</span>km/h
+              </div>
+            </div>
+            <div class="col">
+              <div>
+                <div class="sunrise-icon">
+                  <i class="fa-solid fa-sun"></i>
+                </div>
+                <div class="sunrise-time">
+                  Sunrise:
+                  <span id="sun-up"></span>
+                </div>
+                <div class="sunset-icon">
+                  <i class="fa-solid fa-moon"></i>
+                </div>
+                <div class="sunset-time">
+                  Sunset:
+                  <span id="sun-down"></span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div>
-              <div class="sunrise-icon">
+
+          <hr />
+
+          <div class="row">
+            <div class="col">
+              <div class="weekday">Mon</div>
+              <div class="weekday-icon">
                 <i class="fa-solid fa-sun"></i>
               </div>
-              <div class="sunrise-time">
-                Sunrise:
-                <span id="sun-up"></span>
+              <span class="high-low">15° | 4°</span>
+              <div class="pop">
+                <i class="fa-solid fa-droplet"></i>
+                10%
               </div>
-              <div class="sunset-icon">
-                <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="col">
+              <div class="weekday">Tues</div>
+              <div class="weekday-icon">
+                <i class="fa-solid fa-sun"></i>
               </div>
-              <div class="sunset-time">
-                Sunset:
-                <span id="sun-down"></span>
+              <span class="high-low">15° | 4°</span>
+              <div class="pop">
+                <i class="fa-solid fa-droplet"></i>
+                10%
+              </div>
+            </div>
+            <div class="col">
+              <div class="weekday">Wed</div>
+              <div class="weekday-icon">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <span class="high-low">15° | 4°</span>
+              <div class="pop">
+                <i class="fa-solid fa-droplet"></i>
+                10%
+              </div>
+            </div>
+            <div class="col">
+              <div class="weekday">Thur</div>
+              <div class="weekday-icon">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <span class="high-low">15° | 4°</span>
+              <div class="pop">
+                <i class="fa-solid fa-droplet"></i>
+                10%
+              </div>
+            </div>
+            <div class="col">
+              <div class="weekday">Fri</div>
+              <div class="weekday-icon">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <span class="high-low">15° | 4°</span>
+              <div class="pop">
+                <i class="fa-solid fa-droplet"></i>
+                10%
               </div>
             </div>
           </div>
         </div>
-
-        <hr />
-
-        <div class="row">
-          <div class="col">
-            <div class="weekday">Mon</div>
-            <div class="weekday-icon">
-              <i class="fa-solid fa-sun"></i>
-            </div>
-            <span class="high-low">15° | 4°</span>
-            <div class="pop">
-              <i class="fa-solid fa-droplet"></i>
-              10%
-            </div>
-          </div>
-          <div class="col">
-            <div class="weekday">Tues</div>
-            <div class="weekday-icon">
-              <i class="fa-solid fa-sun"></i>
-            </div>
-            <span class="high-low">15° | 4°</span>
-            <div class="pop">
-              <i class="fa-solid fa-droplet"></i>
-              10%
-            </div>
-          </div>
-          <div class="col">
-            <div class="weekday">Wed</div>
-            <div class="weekday-icon">
-              <i class="fa-solid fa-sun"></i>
-            </div>
-            <span class="high-low">15° | 4°</span>
-            <div class="pop">
-              <i class="fa-solid fa-droplet"></i>
-              10%
-            </div>
-          </div>
-          <div class="col">
-            <div class="weekday">Thur</div>
-            <div class="weekday-icon">
-              <i class="fa-solid fa-sun"></i>
-            </div>
-            <span class="high-low">15° | 4°</span>
-            <div class="pop">
-              <i class="fa-solid fa-droplet"></i>
-              10%
-            </div>
-          </div>
-          <div class="col">
-            <div class="weekday">Fri</div>
-            <div class="weekday-icon">
-              <i class="fa-solid fa-sun"></i>
-            </div>
-            <span class="high-low">15° | 4°</span>
-            <div class="pop">
-              <i class="fa-solid fa-droplet"></i>
-              10%
-            </div>
-          </div>
-        </div>
-        <p class="written-by">
-          <a href="https://github.com/TessBReid/Weather-App"
-            >Open-Source Code</a
-          >
-          by Tessa Bailey-Reid
-        </p>
       </div>
+      <p class="written-by">
+        <a href="https://github.com/TessBReid/Weather-App">Open-Source Code</a>
+        by Tessa Bailey-Reid
+      </p>
     </div>
 
     <script src="src/script.js"></script>

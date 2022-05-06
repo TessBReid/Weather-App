@@ -44,7 +44,6 @@ function formateTime(timestamp) {
 
 function showCurrentWeather(response) {
   celciusTemperature = response.data.main.temp;
-  console.log(response.data.sys);
 
   let fullDate = document.querySelector("#today");
   fullDate.innerHTML = formateDate(response.data.dt * 1000);
