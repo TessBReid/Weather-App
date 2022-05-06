@@ -87,8 +87,6 @@ function showCurrentWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-  //let sunriseElement = response.data.sys.sunrise;
 }
 
 function search(event) {
@@ -99,6 +97,15 @@ function search(event) {
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=${unit}`;
   axios.get(apiURL).then(showCurrentWeather);
 }
+
+function displayedSearch(city) {
+  let unit = "metric";
+  let apiKey = "b1075effe9bc0e836b23229ae5c92544";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiURL).then(showCurrentWeather);
+}
+
+displayedSearch("London");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
