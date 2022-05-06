@@ -106,6 +106,18 @@ form.addEventListener("submit", search);
 function showCurrentLocationTemperature(response) {
   celciusTemperature = response.data.main.temp;
 
+  let fullDate = document.querySelector("#today");
+  fullDate.innerHTML = formateDate(response.data.dt * 1000);
+
+  let currentTime = document.querySelector("#current-time");
+  currentTime.innerHTML = formateTime(response.data.dt * 1000);
+
+  let sunriseElement = document.querySelector("#sun-up");
+  sunriseElement.innerHTML = formateTime(response.data.sys.sunrise * 1000);
+
+  let sunsetElement = document.querySelector("#sun-down");
+  sunsetElement.innerHTML = formateTime(response.data.sys.sunset * 1000);
+
   let locationTemp = Math.round(celciusTemperature);
   let localTemperature = document.querySelector("#today-temp");
   localTemperature.innerHTML = `${locationTemp}`;
