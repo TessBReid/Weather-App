@@ -38,20 +38,25 @@ function formateTime(timestamp) {
   let minutes = currentTime.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
-    return `${hours}:${minutes}`;
   }
+  return `${hours}:${minutes}`;
 }
 
 function showCurrentWeather(response) {
   celciusTemperature = response.data.main.temp;
-
-  console.log(response.data);
+  console.log(response.data.sys);
 
   let fullDate = document.querySelector("#today");
   fullDate.innerHTML = formateDate(response.data.dt * 1000);
 
   let currentTime = document.querySelector("#current-time");
-  currentTime.innerHTML = formateDate(response.data.dt * 1000);
+  currentTime.innerHTML = formateTime(response.data.dt * 1000);
+
+  let sunriseElement = document.querySelector("#sun-up");
+  sunriseElement.innerHTML = formateTime(response.data.sys.sunrise * 1000);
+
+  let sunsetElement = document.querySelector("#sun-down");
+  sunsetElement.innerHTML = formateTime(response.data.sys.sunset * 1000);
 
   let temp = Math.round(celciusTemperature);
   let currentTemperature = document.querySelector("#today-temp");
