@@ -1,50 +1,57 @@
-let currentDate = new Date();
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[currentDate.getDay()];
-
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[currentDate.getMonth()];
-let date = currentDate.getDate();
-
-let fullDate = document.querySelector("#today");
-fullDate.innerHTML = `${day} ${month} ${date}`;
-
-let hours = currentDate.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = currentDate.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+function formateDate(timestamp) {
+  let currentDate = new Date(timestamp);
+  let date = currentDate.getDate();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[currentDate.getDay()];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[currentDate.getMonth()];
+  return `${day} ${month} ${date}`;
 }
 
-let currentTime = document.querySelector("#current-time");
-currentTime.innerHTML = `${hours}:${minutes}`;
+function formateTime(timestamp) {
+  let currentTime = new Date(timestamp);
+  let hours = currentTime.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = currentTime.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+    return `${hours}:${minutes}`;
+  }
+}
 
 function showCurrentWeather(response) {
   celciusTemperature = response.data.main.temp;
+
+  console.log(response.data);
+
+  let fullDate = document.querySelector("#today");
+  fullDate.innerHTML = formateDate(response.data.dt * 1000);
+
+  let currentTime = document.querySelector("#current-time");
+  currentTime.innerHTML = formateDate(response.data.dt * 1000);
 
   let temp = Math.round(celciusTemperature);
   let currentTemperature = document.querySelector("#today-temp");
