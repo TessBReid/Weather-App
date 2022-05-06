@@ -1,6 +1,14 @@
 let currentDate = new Date();
 
-let days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 let day = days[currentDate.getDay()];
 
 let months = [

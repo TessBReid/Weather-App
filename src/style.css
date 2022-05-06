@@ -58,6 +58,9 @@ button:hover {
   top: 10px;
   left: 20px;
 }
+.description {
+  text-transform: capitalize;
+}
 
 .today-temp {
   font-size: 70px;
