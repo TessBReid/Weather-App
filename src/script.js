@@ -196,12 +196,29 @@ function displayCelciusTemp(event) {
 let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", displayCelciusTemp);
 
-//function displayForcast() {
-//let forcastElement = document.querySelector("#");
-//forcastElement.innerHTML = "Forcast";
-//}
+function displayForcast() {
+  let forcastElement = document.querySelector("#weekday-forcast");
+  forcastElement.innerHTML = `
+  <div class="row">
+              <div class="col">
+                <div class="weekday">Mon</div>
+                <div class="weekday-icon">
+                  <i class="fa-solid fa-sun"></i>
+                </div>
+                <div>
+                 <span class="high">15° | </span>
+                 <span class="low">4°</span>
+                </div>
+                <div class="pop">
+                  <i class="fa-solid fa-droplet"></i>
+                  10%
+                </div>
+              </div>
+            </div>
+  `;
+}
 
-//displayForcast();
+displayForcast();
 
 let celciusTemperature = null;
 

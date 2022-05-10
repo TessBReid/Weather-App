@@ -110,8 +110,13 @@ img {
 }
 .weekday,
 .weekday-icon,
-.high-low,
 .pop {
+  text-align: center;
+  display: block;
+}
+
+.high,
+.low {
   text-align: center;
   display: block;
 }
