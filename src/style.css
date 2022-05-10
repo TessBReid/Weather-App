@@ -45,10 +45,12 @@ button:hover {
 .weather-app {
   border: 1px solid #000;
   margin: 30px auto;
-  padding: 20px 10px;
-  border-radius: 5px;
-  width: 70%;
+  padding: 25px 20px;
+  border-radius: 10px;
+  width: 60%;
   background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 .day-icon {
   text-align: center;
@@ -92,10 +94,16 @@ button:hover {
 
 .sunrise-icon,
 .sunset-icon {
-  font-size: 25px;
   text-align: center;
   margin: 15px auto 0px;
 }
+
+img {
+  font-size: smaller;
+  width: 32%;
+  background-color: yellow;
+}
+
 .sunrise-time,
 .sunset-time {
   text-align: center;
@@ -108,5 +116,5 @@ button:hover {
   display: block;
 }
 .weekday-icon {
-  font-size: 35px;
+  font-size: 32px;
 }

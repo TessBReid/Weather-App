@@ -104,8 +104,6 @@ function displayedSearch(city) {
   axios.get(apiURL).then(showCurrentWeather);
 }
 
-displayedSearch("London");
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
@@ -198,4 +196,13 @@ function displayCelciusTemp(event) {
 let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", displayCelciusTemp);
 
+//function displayForcast() {
+//let forcastElement = document.querySelector("#");
+//forcastElement.innerHTML = "Forcast";
+//}
+
+//displayForcast();
+
 let celciusTemperature = null;
+
+displayedSearch("London");
