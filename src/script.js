@@ -198,24 +198,29 @@ celciusLink.addEventListener("click", displayCelciusTemp);
 
 function displayForcast() {
   let forcastElement = document.querySelector("#weekday-forcast");
-  forcastElement.innerHTML = `
-  <div class="row">
+
+  let forcastHTML = `<div class="row">`;
+  forcastHTML =
+    forcastHTML +
+    `
               <div class="col">
                 <div class="weekday">Mon</div>
                 <div class="weekday-icon">
-                  <i class="fa-solid fa-sun"></i>
+                  <img
+                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  alt=""/>
                 </div>
                 <div>
-                 <span class="high">15° | </span>
-                 <span class="low">4°</span>
+                 <span class="high">15° | </span><span class="low">4°</span>
                 </div>
                 <div class="pop">
                   <i class="fa-solid fa-droplet"></i>
                   10%
                 </div>
               </div>
-            </div>
-  `;
+            `;
+  forcastHTML = forcastHTML + `</div>`;
+  forcastElement.innerHTML = forcastHTML;
 }
 
 displayForcast();

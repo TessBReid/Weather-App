@@ -98,12 +98,6 @@ button:hover {
   margin: 15px auto 0px;
 }
 
-img {
-  font-size: smaller;
-  width: 32%;
-  background-color: yellow;
-}
-
 .sunrise-time,
 .sunset-time {
   text-align: center;
@@ -111,15 +105,18 @@ img {
 .weekday,
 .weekday-icon,
 .pop {
-  text-align: center;
-  display: block;
+  text-align: left;
 }
 
 .high,
 .low {
   text-align: center;
-  display: block;
 }
 .weekday-icon {
   font-size: 32px;
+}
+
+#up,
+#down {
+  width: 25%;
 }
