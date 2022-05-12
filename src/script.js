@@ -42,6 +42,13 @@ function formateTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+function getDailyForcast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b1075effe9bc0e836b23229ae5c92544";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForcast);
+}
+
 function showCurrentWeather(response) {
   celciusTemperature = response.data.main.temp;
 
@@ -86,6 +93,8 @@ function showCurrentWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getDailyForcast(response.data.coord);
 }
 
 function search(event) {
@@ -151,6 +160,8 @@ function showCurrentLocationTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getDailyForcast(response.data.coord);
 }
 
 function showCurrentLocation(position) {
@@ -196,15 +207,18 @@ function displayCelciusTemp(event) {
 let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", displayCelciusTemp);
 
-function displayForcast() {
+function displayForcast(response) {
+  console.log(response.data.daily);
   let forcastElement = document.querySelector("#weekday-forcast");
 
   let forcastHTML = `<div class="row">`;
-  forcastHTML =
-    forcastHTML +
-    `
+  let days = ["Thur", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      `
               <div class="col">
-                <div class="weekday">Mon</div>
+                <div class="weekday">${day}</div>
                 <div class="weekday-icon">
                   <img
                   src="http://openweathermap.org/img/wn/50d@2x.png"
@@ -219,11 +233,11 @@ function displayForcast() {
                 </div>
               </div>
             `;
+  });
+
   forcastHTML = forcastHTML + `</div>`;
   forcastElement.innerHTML = forcastHTML;
 }
-
-displayForcast();
 
 let celciusTemperature = null;
 
