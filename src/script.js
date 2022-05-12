@@ -190,6 +190,9 @@ function displayFarenheitTemp(event) {
 
   let localTemperature = document.querySelector("#today-temp");
   localTemperature.innerHTML = Math.round(farenheitConversion);
+
+  let feelsLikeTemp = document.querySelector("#feels-like");
+  feelsLikeTemp.innerHTML = Math.round(farenheitConversion);
 }
 
 let farenheitLink = document.querySelector("#farenheit");
@@ -236,9 +239,9 @@ function displayForecast(response) {
                   alt=""/>
                 </div>
                 <div>
-                 <span class="high">${Math.round(
+                 <span class="high" id="temp-max">${Math.round(
                    forecastDay.temp.max
-                 )}° | </span><span class="low">${Math.round(
+                 )}° | </span><span class="low" id="temp-min">${Math.round(
           forecastDay.temp.min
         )}°</span>
                 </div>
