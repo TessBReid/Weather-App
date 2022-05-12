@@ -221,10 +221,11 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class="row">`;
 
-  fiveDayWeather.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  fiveDayWeather.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
               <div class="col">
                 <div class="weekday">${formateDay(forecastDay.dt)}</div>
                 <div class="weekday-icon">
@@ -238,8 +239,8 @@ function displayForecast(response) {
                  <span class="high">${Math.round(
                    forecastDay.temp.max
                  )}° | </span><span class="low">${Math.round(
-        forecastDay.temp.min
-      )}°</span>
+          forecastDay.temp.min
+        )}°</span>
                 </div>
                 <div class="pop">
                   <i class="fa-solid fa-droplet"></i>
@@ -247,6 +248,7 @@ function displayForecast(response) {
                 </div>
               </div>
             `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
