@@ -42,11 +42,11 @@ function formateTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-function getDailyForcast(coordinates) {
+function getDailyForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "b1075effe9bc0e836b23229ae5c92544";
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiURL).then(displayForcast);
+  axios.get(apiURL).then(displayForecast);
 }
 
 function showCurrentWeather(response) {
@@ -94,7 +94,7 @@ function showCurrentWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getDailyForcast(response.data.coord);
+  getDailyForecast(response.data.coord);
 }
 
 function search(event) {
@@ -161,7 +161,7 @@ function showCurrentLocationTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getDailyForcast(response.data.coord);
+  getDailyForecast(response.data.coord);
 }
 
 function showCurrentLocation(position) {
@@ -207,36 +207,50 @@ function displayCelciusTemp(event) {
 let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", displayCelciusTemp);
 
-function displayForcast(response) {
-  console.log(response.data.daily);
-  let forcastElement = document.querySelector("#weekday-forcast");
+function formateDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
 
-  let forcastHTML = `<div class="row">`;
-  let days = ["Thur", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
+  return days[day];
+}
+
+function displayForecast(response) {
+  let fiveDayWeather = response.data.daily;
+  let forecastElement = document.querySelector("#weekday-forcast");
+
+  let forecastHTML = `<div class="row">`;
+
+  fiveDayWeather.forEach(function (forecastDay) {
+    forecastHTML =
+      forecastHTML +
       `
               <div class="col">
-                <div class="weekday">${day}</div>
+                <div class="weekday">${formateDay(forecastDay.dt)}</div>
                 <div class="weekday-icon">
                   <img
-                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
                   alt=""/>
                 </div>
                 <div>
-                 <span class="high">15° | </span><span class="low">4°</span>
+                 <span class="high">${Math.round(
+                   forecastDay.temp.max
+                 )}° | </span><span class="low">${Math.round(
+        forecastDay.temp.min
+      )}°</span>
                 </div>
                 <div class="pop">
                   <i class="fa-solid fa-droplet"></i>
-                  10%
+                 ${Math.round(forecastDay.pop)}%
                 </div>
               </div>
             `;
   });
 
-  forcastHTML = forcastHTML + `</div>`;
-  forcastElement.innerHTML = forcastHTML;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let celciusTemperature = null;
