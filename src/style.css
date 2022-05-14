@@ -54,7 +54,6 @@ button:hover {
 }
 .day-icon {
   text-align: center;
-  font-size: 50px;
 }
 .day-info {
   text-align: left;
@@ -118,4 +117,8 @@ button:hover {
 #up,
 #down {
   width: 25%;
+}
+
+#weather-icon {
+  width: 42%;
 }

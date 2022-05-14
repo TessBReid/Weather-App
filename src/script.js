@@ -88,10 +88,16 @@ function showCurrentWeather(response) {
   weatherDescription.innerHTML = `${weatherElement}`;
 
   let iconElement = document.querySelector("#weather-icon");
+
+  //iconElement, setAttribute("alt", response.data.weather[0].description);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `src/img-icon/${response.data.weather[0].icon}.png`
   );
+  //iconElement.setAttribute(
+  //"src",
+  //`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  //);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getDailyForecast(response.data.coord);
@@ -161,6 +167,8 @@ function showCurrentLocationTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
+  console.log(response.data.weather);
+
   getDailyForecast(response.data.coord);
 }
 
@@ -190,9 +198,6 @@ function displayFarenheitTemp(event) {
 
   let localTemperature = document.querySelector("#today-temp");
   localTemperature.innerHTML = Math.round(farenheitConversion);
-
-  let feelsLikeTemp = document.querySelector("#feels-like");
-  feelsLikeTemp.innerHTML = Math.round(farenheitConversion);
 }
 
 let farenheitLink = document.querySelector("#farenheit");
