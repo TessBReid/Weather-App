@@ -232,12 +232,10 @@ function displayForecast(response) {
                 <div class="weekday">${formateDay(forecastDay.dt)}</div>
                 <div class="weekday-icon">
                   <img
-                  src="http://openweathermap.org/img/wn/${
-                    forecastDay.weather[0].icon
-                  }@2x.png"
+                  src="src/img-icon/${forecastDay.weather[0].icon}.png"
                   alt=""/>
                 </div>
-                <div>
+                <div id="five-day">
                  <span class="high" id="temp-max">${Math.round(
                    forecastDay.temp.max
                  )}° | </span><span class="low" id="temp-min">${Math.round(

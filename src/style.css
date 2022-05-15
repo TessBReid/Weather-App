@@ -110,7 +110,13 @@ button:hover {
 .low {
   text-align: center;
 }
-.weekday-icon {
+.weekday-icon img {
+  width: 30%;
+  margin-bottom: 5px;
+  margin-left: 35px;
+}
+
+.weekday-forcast {
   text-align: center;
 }
 
@@ -121,4 +127,9 @@ button:hover {
 
 #weather-icon {
   width: 42%;
+  margin-top: 15px;
+}
+
+#five-day {
+  text-align: center;
 }
