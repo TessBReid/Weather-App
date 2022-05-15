@@ -1,10 +1,13 @@
+body {
+  font-family: "inter", sans-serif;
+}
+
 h1 {
   text-align: left;
-  font-family: "inter," sans-serif;
   font-size: 50px;
 }
 hr {
-  width: 90%;
+  width: 93%;
   margin: 10px auto;
 }
 
@@ -52,6 +55,7 @@ button:hover {
   background-position: bottom;
   background-repeat: no-repeat;
 }
+
 .day-icon {
   text-align: center;
 }
@@ -106,18 +110,10 @@ button:hover {
   text-align: center;
 }
 
-.high,
-.low {
-  text-align: center;
-}
 .weekday-icon img {
-  width: 30%;
+  width: 38%;
   margin-bottom: 5px;
   margin-left: 35px;
-}
-
-.weekday-forcast {
-  text-align: center;
 }
 
 #up,

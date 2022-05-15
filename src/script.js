@@ -242,10 +242,7 @@ function displayForecast(response) {
           forecastDay.temp.min
         )}°</span>
                 </div>
-                <div class="pop">
-                  <i class="fa-solid fa-droplet"></i>
-                 ${Math.round(forecastDay.pop)}%
-                </div>
+            
               </div>
             `;
     }
